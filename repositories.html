@@ -4,12 +4,170 @@
   <meta charset="utf-8">
   <title>Navigation Bar</title>
   <style>
-    * {
+    body {
+      background: repeating-linear-gradient(
+        0deg,
+        #0e0d0e 25%,
+        #0e0d0e 50%,
+        #171819 50%,
+        #171819 75%
+      );
+      background-size: 10px 10px;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      font-family: "Barlow", sans-serif;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .glitch {
+      position: relative;
+      color: #fff;
+      font-size: 80px;
+    }
+    
+    .line {
+      &:not(:first-child) {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    
+      @for $i from 1 through 10 {
+        &:nth-child(#{$i}) {
+          animation: clip 3000ms $i * -300ms linear infinite,
+            glitch#{$i} 500ms random(1000) * -1ms linear infinite;
+    
+          @keyframes glitch#{$i} {
+            0% {
+              transform: translateX(0);
+            }
+            80% {
+              transform: translateX(0);
+              color: #fff;
+            }
+            85% {
+              transform: translateX(random(10) - 5px);
+              color: #4e9a26;
+            }
+            90% {
+              transform: translateX(random(10) - 5px);
+              color: #ac1212;
+            }
+            95% {
+              transform: translateX(random(10) - 5px);
+              color: #fff;
+            }
+            100% {
+              transform: translateX(0);
+            }
+          }
+        }
+      }
+    }
+    
+    @keyframes clip {
+      0% {
+        clip-path: polygon(0 100%, 100% 100%, 100% 120%, 0 120%);
+      }
+    
+      100% {
+        clip-path: polygon(0 -20%, 100% -20%, 100% 0%, 0 0);
+      }
+    }
+    
+    * 
+    body {
+    background: repeating-linear-gradient(
+        0deg,
+        #0E0D0E 25%,
+        #0E0D0E 50%,
+        #171819 50%,
+        #171819 75%
+      );
+    background-size: 10px 10px;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    font-family: 'Barlow', sans-serif;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .glitch {
+    position: relative;
+    color: #fff;
+    font-size: 80px;
+  }
+  
+  .line {
+    &:not(:first-child) {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    
+    @for $i from 1 through 10 {
+      &:nth-child(#{$i}) {
+        animation:
+          clip 3000ms $i * -300ms linear infinite,
+          glitch#{$i} 500ms random(1000) * -1ms linear infinite;
+  
+        @keyframes glitch#{$i} {
+          0% {
+            transform: translateX(0);
+          }
+          80% {
+            transform: translateX(0);
+            color: #fff;
+          }
+          85% {
+            transform: translateX(random(10) - 5px);
+            color: #4E9A26;
+          }
+          90% {
+            transform: translateX(random(10) - 5px);
+            color: #AC1212;
+          }
+          95% {
+            transform: translateX(random(10) - 5px);
+            color: #fff;
+          }
+          100% {
+            transform: translateX(0);
+          }
+        }
+      }
+    }
+  }
+  
+  @keyframes clip {
+    0% {
+      clip-path: polygon(
+        0 100%,
+        100% 100%,
+        100% 120%,
+        0 120%
+      );
+    }
+    
+    100% {
+      clip-path: polygon(
+        0 -20%,
+        100% -20%,
+        100% 0%,
+        0 0
+      );
+    }
+  }
+  
+    {
       box-sizing: border-box;
     }
     
     body {
-      background: #1A1E23;
+      background: #121E23;
       font-family: 'Lato', sans-serif;
       -webkit-font-smoothing: antialiased;
       display: flex;
@@ -65,6 +223,7 @@
       letter-spacing: .2em;
       font-size: 14px;
     }
+    
   </style>
 </head>
 <body>
@@ -73,11 +232,13 @@
         <li class="active"><a>
       <li> <a href="code\program04.html">Bank Transaction System (Java)</a></li>
       <li><a href="code\initialOrg.html">Initial Organizer (Java)</a></li>
+      <li><a href="code\Program05.html">Heart Rate Tester (Java)
+
+      </a></li>
       <li><a href=""></a></li>
     </ul>
     <div class="line"></div>
   </nav>
-  
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
     var nav = $('nav');

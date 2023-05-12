@@ -1,0 +1,98 @@
+<a href="Program05.html" download>Download Java Code</a>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Program05</title>
+  </head>
+  <body>
+    <pre>
+/* Ethan Huynh
+ * Date: 12/04/2021
+ * COSC 1315 001
+ * Purpose: Program to check heart rate of user, and tell if they are in the right zone of heart rate or not.
+ */
+
+
+package program05;
+
+import java.util.Scanner;
+import java.util.*;
+public class Program05 {
+
+	public static void main(String[] args) {
+		
+		 
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("Please input your heart rate: ");
+		
+		int heartRate = scanner.nextInt();
+		
+		System.out.println("Your date of birth in dd/mm/yyyy is:  ");
+		
+		int birthDay = scanner.nextInt();
+		int birthMonth = scanner.nextInt();
+		int birthYear = scanner.nextInt();
+		
+		int age = computeAge(birthDay, birthMonth, birthYear);
+		
+		int maxHeartRate = computeMaximumHeartRate(age);
+		int minHeartRate = computeMinimumHeartRate(age);
+		
+		if(heartRate < maxHeartRate || heartRate > minHeartRate) {
+			System.out.println("Congratulations! You're in the target rate zone!");
+		}
+		else {
+			System.out.println("WARNING! YOU ARE NOT IN THE TARGET HEART RATE ZONE!");
+		}
+	
+		
+	}
+	public static int computeMaximumHeartRate(int age) {
+		int maxHeartRate = (int)(220 * .85);
+		System.out.println("Your maximum heartrate is: " + maxHeartRate);
+		return maxHeartRate;
+	}
+	public static int computeMinimumHeartRate(int age) {
+		int maxHeartRate = (int)(220 * .50); 
+		System.out.println("Your minimum heartrate is: " + maxHeartRate);
+		return maxHeartRate;
+	}
+	
+		public static int computeAge(int day, int month, int year) {
+			Scanner scanner1 = new Scanner(System.in);
+			System.out.println("Enter current date dd/mm/yy");
+			int currentDay = scanner1.nextInt();
+			int currentMonth = scanner1.nextInt();
+			int currentYear = scanner1.nextInt();
+			int age; 
+			if(currentMonth >= month || currentDay >= day)
+			{
+				 age = currentYear - year;
+			}
+			else {
+				 age = (currentYear - year) - 1;
+			}
+			System.out.println("Your age is currently: " + age);
+			return age; 
+			
+		}
+		
+		}
+	
+		
+		
+		
+		
+		
+		
+
+		
+		
+		
+		
+		
+
+
