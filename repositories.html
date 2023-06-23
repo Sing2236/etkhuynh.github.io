@@ -230,9 +230,16 @@
   <nav>
     <ul>
         <li class="active"><a>
-      <li> <a href="code\program04.html">Bank Transaction System (Java)</a></li>
-      <li><a href="code\initialOrg.html">Initial Organizer (Java)</a></li>
-      <li><a href="code\Program05.html">Heart Rate Tester (Java) </a></li>
+                   
+          <li><a href="code\program04.html" data-image="path/to/image.jpg">Bank Transaction System (Java)</a></li>
+          <img id="image-display" src="" alt="Image Display">
+
+          <li><a href="code\initialOrg.html" data-image="path/to/image.jpg">Initial Organization (Java) (Java)</a></li>      
+          <img id="image-display" src="" alt="Image Display">
+          
+    
+          <li><a href="code\Program05.html" data-image="path/to/image.jpg">Heart Rate Tester (Java)</a></li>
+          <img id="image-display" src="" alt="Image Display">
           
       <li><a href=""></a></li>
     </ul>
@@ -240,6 +247,31 @@
   </nav>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
+
+
+    // Get a reference to the image display element
+var imageDisplay = document.getElementById('image-display');
+
+// Get all the anchor tags
+var anchorTags = document.querySelectorAll('nav ul li a');
+
+// Attach hover event listeners to each anchor tag
+anchorTags.forEach(function(anchorTag) {
+  anchorTag.addEventListener('mouseover', function() {
+    // Get the image path from the data-image attribute
+    var imagePath = this.getAttribute('data-image');
+
+    // Update the image source
+    imageDisplay.src = imagePath;
+  });
+
+  anchorTag.addEventListener('mouseout', function() {
+    // Clear the image source when the mouse is not hovering
+    imageDisplay.src = "";
+  });
+});
+
+    
     var nav = $('nav');
     var line = $('<div />').addClass('line');
 
