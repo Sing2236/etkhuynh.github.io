@@ -1,336 +1,124 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>Navigation Bar</title>
-  <style>
-    body {
-      background: repeating-linear-gradient(
-        0deg,
-        #0e0d0e 25%,
-        #0e0d0e 50%,
-        #171819 50%,
-        #171819 75%
-      );
-      background-size: 10px 10px;
-      height: 100vh;
-      overflow: hidden;
-      display: flex;
-      font-family: "Barlow", sans-serif;
-      justify-content: center;
-      align-items: center;
-    }
-    
-    .glitch {
-      position: relative;
-      color: #fff;
-      font-size: 80px;
-    }
-    
-    .line {
-      &:not(:first-child) {
-        position: absolute;
-        top: 0;
-        left: 0;
-      }
-    
-      @for $i from 1 through 10 {
-        &:nth-child(#{$i}) {
-          animation: clip 3000ms $i * -300ms linear infinite,
-            glitch#{$i} 500ms random(1000) * -1ms linear infinite;
-    
-          @keyframes glitch#{$i} {
-            0% {
-              transform: translateX(0);
-            }
-            80% {
-              transform: translateX(0);
-              color: #fff;
-            }
-            85% {
-              transform: translateX(random(10) - 5px);
-              color: #4e9a26;
-            }
-            90% {
-              transform: translateX(random(10) - 5px);
-              color: #ac1212;
-            }
-            95% {
-              transform: translateX(random(10) - 5px);
-              color: #fff;
-            }
-            100% {
-              transform: translateX(0);
-            }
-          }
-        }
-      }
-    }
-    
-    @keyframes clip {
-      0% {
-        clip-path: polygon(0 100%, 100% 100%, 100% 120%, 0 120%);
-      }
-    
-      100% {
-        clip-path: polygon(0 -20%, 100% -20%, 100% 0%, 0 0);
-      }
-    }
-    
-    * 
-    body {
-    background: repeating-linear-gradient(
-        0deg,
-        #0E0D0E 25%,
-        #0E0D0E 50%,
-        #171819 50%,
-        #171819 75%
-      );
-    background-size: 10px 10px;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    font-family: 'Barlow', sans-serif;
-    justify-content: center;
-    align-items: center;
+ <meta charset="utf-8">
+ <title>Navigation Bar</title>
+ <style>
+  body {
+   background: #333;
+   font-family: Arial, sans-serif;
   }
-  
-  .glitch {
-    position: relative;
-    color: #fff;
-    font-size: 80px;
+
+  .html-preview {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   width: 800px;
+   height: 600px;
+   background: white;
+   overflow: auto;
+   z-index: 999;
+   opacity: 0;
+   height: 100%;
+   overflow: auto;
+   border: 1px solid #ccc;
+   border-radius: 10px;
+   padding: 20px;
+   transition: opacity 0.5s ease-in-out;
   }
-  
-  .line {
-    &:not(:first-child) {
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-    
-    @for $i from 1 through 10 {
-      &:nth-child(#{$i}) {
-        animation:
-          clip 3000ms $i * -300ms linear infinite,
-          glitch#{$i} 500ms random(1000) * -1ms linear infinite;
-  
-        @keyframes glitch#{$i} {
-          0% {
-            transform: translateX(0);
-          }
-          80% {
-            transform: translateX(0);
-            color: #fff;
-          }
-          85% {
-            transform: translateX(random(10) - 5px);
-            color: #4E9A26;
-          }
-          90% {
-            transform: translateX(random(10) - 5px);
-            color: #AC1212;
-          }
-          95% {
-            transform: translateX(random(10) - 5px);
-            color: #fff;
-          }
-          100% {
-            transform: translateX(0);
-          }
-        }
-      }
-    }
+
+  .html-preview.active {
+   opacity: 1;
+   transition: opacity 0.5s ease-in-out;
   }
-  
-  @keyframes clip {
-    0% {
-      clip-path: polygon(
-        0 100%,
-        100% 100%,
-        100% 120%,
-        0 120%
-      );
-    }
-    
-    100% {
-      clip-path: polygon(
-        0 -20%,
-        100% -20%,
-        100% 0%,
-        0 0
-      );
-    }
+
+  .moving-graphic {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100vh;
+   background: url("https://media2.giphy.com/media/3ohhwutQL0CDTq3kKA/giphy.gif?cid=ecf05e47r1geao9h547pixfdiglyqn8symy8a092akmwdfwf&ep=v1_stickers_search&rid=giphy.gif&ct=s");
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   z-index: -1;
   }
-  
-    {
-      box-sizing: border-box;
-    }
-    
-    body {
-      background: #121E23;
-      font-family: 'Lato', sans-serif;
-      -webkit-font-smoothing: antialiased;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-    
-    nav {
-      position: relative;
-      padding-bottom: 12px;
-    }
-    
-    nav .line {
-      height: 2px;
-      position: absolute;
-      bottom: 0;
-      margin: 10px 0 0 0;
-      background: #FF1847;
-    }
-    
-    nav ul {
-      padding: 0;
-      margin: 0;
-      list-style: none;
-      display: flex;
-    }
-    
-    nav ul li {
-      margin: 0 40px 0 0;
-      opacity: .4;
-      transition: all 0.4s ease;
-    }
-    
-    nav ul li:hover {
-      opacity: .7;
-    }
-    
-    nav ul li.active {
-      opacity: 1;
-    }
-    
-    nav ul li:last-child {
-      margin-right: 0;
-    }
-    
-    nav ul li a {
-      text-decoration: none;
-      color: #fff;
-      text-transform: uppercase;
-      display: block;
-      font-weight: 600;
-      letter-spacing: .2em;
-      font-size: 14px;
-    }
-    
-  </style>
+
+  #topbar {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 60px;
+   background: rgba(51, 51, 51, 0.8);
+   z-index: 1000;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+  }
+
+  #topbar ul {
+   list-style: none;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+  }
+
+  #topbar ul li {
+   margin: 0 20px;
+  }
+
+  #topbar ul li a {
+   color: white;
+   text-decoration: none;
+   font-size: 18px;
+   font-weight: bold;
+  }
+
+  #topbar ul li a:hover {
+   color: white;
+   opacity: 0.7;
+  }
+ </style>
 </head>
 <body>
-  <nav>
-    <ul>
-        <li class="active"><a>
-                   
-          <li><a href="code\program04.html" data-image="path/to/image.jpg">Bank Transaction System (Java)</a></li>
-          <img id="image-display" src="" alt="Image Display">
+ <div class="moving-graphic"></div>
 
-          <li><a href="code\initialOrg.html" data-image="path/to/image.jpg">Initial Organization (Java) (Java)</a></li>      
-          <img id="image-display" src="" alt="Image Display">
-          
-    
-          <li><a href="code\Program05.html" data-image="path/to/image.jpg">Heart Rate Tester (Java)</a></li>
-          <img id="image-display" src="" alt="Image Display">
-          
-      <li><a href=""></a></li>
-    </ul>
-    <div class="line"></div>
-  </nav>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
+ <div id="topbar">
+  <ul>
+   <li class="active"><a>Link 1</a></li>
+   <li><a href="#" onmouseover="showHTML('content2')">Link 2</a></li>
+   <li><a href="#" onmouseover="showHTML('content3')">Link 3</a></li>
+  </ul>
+ </div>
 
+ <div id="content1" class="html-preview active">
+  <h1>Content for Page 1</h1>
+  <p>This is the content for Page 1.</p>
+ </div>
 
-    // Get a reference to the image display element
-var imageDisplay = document.getElementById('image-display');
+ <div id="content2" class="html-preview">
+  <h1>Content for Page 2</h1>
+  <p>This is the content for Page 2.</p>
+ </div>
 
-// Get all the anchor tags
-var anchorTags = document.querySelectorAll('nav ul li a');
+ <div id="content3" class="html-preview">
+  <h1>Content for Page 3</h1>
+  <p>This is the content for Page 3.</p>
+ </div>
 
-// Attach hover event listeners to each anchor tag
-anchorTags.forEach(function(anchorTag) {
-  anchorTag.addEventListener('mouseover', function() {
-    // Get the image path from the data-image attribute
-    var imagePath = this.getAttribute('data-image');
-
-    // Update the image source
-    imageDisplay.src = imagePath;
+ <script>
+ function showHTML(contentId) {
+  var contentElements = document.querySelectorAll('.html-preview');
+  contentElements.forEach(function(element) {
+   element.classList.remove('active');
   });
 
-  anchorTag.addEventListener('mouseout', function() {
-    // Clear the image source when the mouse is not hovering
-    imageDisplay.src = "";
-  });
-});
-
-    
-    var nav = $('nav');
-    var line = $('<div />').addClass('line');
-
-    line.appendTo(nav);
-
-    var active = nav.find('.active');
-    var pos = 0;
-    var wid = 0;
-
-    if(active.length) {
-      pos = active.position().left;
-      wid = active.width();
-      line.css({
-        left: pos,
-        width: wid
-      });
-    }
-
-    nav.find('ul li a').click(function(e) {
-      e.preventDefault();
-      if(!$(this).parent().hasClass('active') && !nav.hasClass('animate')) {
-
-        nav.addClass('animate');
-
-        var _this = $(this);
-
-        nav.find('ul li').removeClass('active');
-
-        var position = _this.parent().position();
-        var width = _this.parent().width();
-
-        if(position.left >= pos) {
-          line.animate({
-            width: ((position.left - pos) + width)
-          }, 300, function() {
-            line.animate({
-              width: width,
-              left: position.left
-            }, 150, function() {
-              nav.removeClass('animate');
-            });
-            _this.parent().addClass('active');
-          });
-        } else {
-          line.animate({
-            left: position.left,
-            width: ((pos - position.left) + wid)
-          }, 300, function() {
-            line.animate({
-              width: width
-            }, 150, function() {
-              nav.removeClass('animate');
-            });
-            _this.parent().addClass('active');
-        });
-    }
-
-    pos = position.left;
-    wid = width;
-  }
-});
-
+  var selectedContent = document.getElementById(contentId);
+  selectedContent.classList.add('active');
+ }
+</script>
+</body>
+</html>
