@@ -1,0 +1,67 @@
+<a href="Program04.html" download>Download Java Code</a>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Program04</title>
+  </head>
+  <body>
+    <pre>
+      /* Ethan Huynh
+       * COSC 1315 001
+       * Date: 11/4/2021
+       * Purpose: Determine new balance after transaction and say whether it was a deposit or withdrawal (Program04)
+       */
+
+      package program04;
+      import java.util.Scanner;
+      import java.text.NumberFormat;
+      public class Program04 {
+        public static double OVERDRAFT_FEE = 25;
+
+        public static void displayPrompt() {
+          System.out.println("Please enter two lines separated by a space, the first one is your current balance, second one is your transaction amount");
+        }
+        public static double computeNewBalance(double currentBalance, double transacAmount) {
+          double newBalance = currentBalance + transacAmount; 
+          if(newBalance &lt; 0)
+            newBalance -= OVERDRAFT_FEE;
+          return newBalance; 
+        }
+
+        public static void displayOutput(double currentBalance, double transacAmount, double newBalance) {
+
+          NumberFormat formatter = NumberFormat.getCurrencyInstance();
+          String currentBalanceStr = formatter.format(currentBalance);
+          System.out.println("Your previous balance is: " + currentBalanceStr);
+          if(transacAmount &lt; 0) {
+            System.out.println("Type of Transaction: Withdrawal");
+            String moneyString = formatter.format(newBalance);
+            System.out.println("Your new balance is: " + moneyString);
+          }
+          else{
+            System.out.println("Type of transaction: Deposit");
+            String moneyString = formatter.format(newBalance);
+            System.out.println("Your new balance is: " + moneyString);
+
+          }
+        }
+        public static void main(String[] args) {
+          Scanner scanner = new Scanner(System.in);
+          displayPrompt();
+          double currentBalance = scanner.nextDouble();
+          double transacAmount = scanner.nextDouble();
+          double newBalance = computeNewBalance(currentBalance, transacAmount);
+          NumberFormat formatter = NumberFormat.getCurrencyInstance();
+          String transactionAmount = formatter.format(transacAmount);
+          System.out.println("Transaction Amount: " + transactionAmount);  
+          displayOutput(currentBalance, transacAmount, newBalance);
+
+          scanner.close();
+        }
+      }
+    </pre>
+  </body>
+</html>
+
+

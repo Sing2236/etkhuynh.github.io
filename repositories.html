@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Navigation Bar</title>
+  <style>
+    body {
+      background: repeating-linear-gradient(
+        0deg,
+        #0e0d0e 25%,
+        #0e0d0e 50%,
+        #171819 50%,
+        #171819 75%
+      );
+      background-size: 10px 10px;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      font-family: "Barlow", sans-serif;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .glitch {
+      position: relative;
+      color: #fff;
+      font-size: 80px;
+    }
+    
+    .line {
+      &:not(:first-child) {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    
+      @for $i from 1 through 10 {
+        &:nth-child(#{$i}) {
+          animation: clip 3000ms $i * -300ms linear infinite,
+            glitch#{$i} 500ms random(1000) * -1ms linear infinite;
+    
+          @keyframes glitch#{$i} {
+            0% {
+              transform: translateX(0);
+            }
+            80% {
+              transform: translateX(0);
+              color: #fff;
+            }
+            85% {
+              transform: translateX(random(10) - 5px);
+              color: #4e9a26;
+            }
+            90% {
+              transform: translateX(random(10) - 5px);
+              color: #ac1212;
+            }
+            95% {
+              transform: translateX(random(10) - 5px);
+              color: #fff;
+            }
+            100% {
+              transform: translateX(0);
+            }
+          }
+        }
+      }
+    }
+    
+    @keyframes clip {
+      0% {
+        clip-path: polygon(0 100%, 100% 100%, 100% 120%, 0 120%);
+      }
+    
+      100% {
+        clip-path: polygon(0 -20%, 100% -20%, 100% 0%, 0 0);
+      }
+    }
+    
+    * 
+    body {
+    background: repeating-linear-gradient(
+        0deg,
+        #0E0D0E 25%,
+        #0E0D0E 50%,
+        #171819 50%,
+        #171819 75%
+      );
+    background-size: 10px 10px;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    font-family: 'Barlow', sans-serif;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .glitch {
+    position: relative;
+    color: #fff;
+    font-size: 80px;
+  }
+  
+  .line {
+    &:not(:first-child) {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    
+    @for $i from 1 through 10 {
+      &:nth-child(#{$i}) {
+        animation:
+          clip 3000ms $i * -300ms linear infinite,
+          glitch#{$i} 500ms random(1000) * -1ms linear infinite;
+  
+        @keyframes glitch#{$i} {
+          0% {
+            transform: translateX(0);
+          }
+          80% {
+            transform: translateX(0);
+            color: #fff;
+          }
+          85% {
+            transform: translateX(random(10) - 5px);
+            color: #4E9A26;
+          }
+          90% {
+            transform: translateX(random(10) - 5px);
+            color: #AC1212;
+          }
+          95% {
+            transform: translateX(random(10) - 5px);
+            color: #fff;
+          }
+          100% {
+            transform: translateX(0);
+          }
+        }
+      }
+    }
+  }
+  
+  @keyframes clip {
+    0% {
+      clip-path: polygon(
+        0 100%,
+        100% 100%,
+        100% 120%,
+        0 120%
+      );
+    }
+    
+    100% {
+      clip-path: polygon(
+        0 -20%,
+        100% -20%,
+        100% 0%,
+        0 0
+      );
+    }
+  }
+  
+    {
+      box-sizing: border-box;
+    }
+    
+    body {
+      background: #121E23;
+      font-family: 'Lato', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    
+    nav {
+      position: relative;
+      padding-bottom: 12px;
+    }
+    
+    nav .line {
+      height: 2px;
+      position: absolute;
+      bottom: 0;
+      margin: 10px 0 0 0;
+      background: #FF1847;
+    }
+    
+    nav ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      display: flex;
+    }
+    
+    nav ul li {
+      margin: 0 40px 0 0;
+      opacity: .4;
+      transition: all 0.4s ease;
+    }
+    
+    nav ul li:hover {
+      opacity: .7;
+    }
+    
+    nav ul li.active {
+      opacity: 1;
+    }
+    
+    nav ul li:last-child {
+      margin-right: 0;
+    }
+    
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      text-transform: uppercase;
+      display: block;
+      font-weight: 600;
+      letter-spacing: .2em;
+      font-size: 14px;
+    }
+    
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+        <li class="active"><a>
+                   
+          <li><a href="code\program04.html" data-image="path/to/image.jpg">Bank Transaction System (Java)</a></li>
+          <img id="image-display" src="" alt="Image Display">
+
+          <li><a href="code\initialOrg.html" data-image="path/to/image.jpg">Initial Organization (Java) (Java)</a></li>      
+          <img id="image-display" src="" alt="Image Display">
+          
+    
+          <li><a href="code\Program05.html" data-image="path/to/image.jpg">Heart Rate Tester (Java)</a></li>
+          <img id="image-display" src="" alt="Image Display">
+          
+      <li><a href=""></a></li>
+    </ul>
+    <div class="line"></div>
+  </nav>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+
+
+    // Get a reference to the image display element
+var imageDisplay = document.getElementById('image-display');
+
+// Get all the anchor tags
+var anchorTags = document.querySelectorAll('nav ul li a');
+
+// Attach hover event listeners to each anchor tag
+anchorTags.forEach(function(anchorTag) {
+  anchorTag.addEventListener('mouseover', function() {
+    // Get the image path from the data-image attribute
+    var imagePath = this.getAttribute('data-image');
+
+    // Update the image source
+    imageDisplay.src = imagePath;
+  });
+
+  anchorTag.addEventListener('mouseout', function() {
+    // Clear the image source when the mouse is not hovering
+    imageDisplay.src = "";
+  });
+});
+
+    
+    var nav = $('nav');
+    var line = $('<div />').addClass('line');
+
+    line.appendTo(nav);
+
+    var active = nav.find('.active');
+    var pos = 0;
+    var wid = 0;
+
+    if(active.length) {
+      pos = active.position().left;
+      wid = active.width();
+      line.css({
+        left: pos,
+        width: wid
+      });
+    }
+
+    nav.find('ul li a').click(function(e) {
+      e.preventDefault();
+      if(!$(this).parent().hasClass('active') && !nav.hasClass('animate')) {
+
+        nav.addClass('animate');
+
+        var _this = $(this);
+
+        nav.find('ul li').removeClass('active');
+
+        var position = _this.parent().position();
+        var width = _this.parent().width();
+
+        if(position.left >= pos) {
+          line.animate({
+            width: ((position.left - pos) + width)
+          }, 300, function() {
+            line.animate({
+              width: width,
+              left: position.left
+            }, 150, function() {
+              nav.removeClass('animate');
+            });
+            _this.parent().addClass('active');
+          });
+        } else {
+          line.animate({
+            left: position.left,
+            width: ((pos - position.left) + wid)
+          }, 300, function() {
+            line.animate({
+              width: width
+            }, 150, function() {
+              nav.removeClass('animate');
+            });
+            _this.parent().addClass('active');
+        });
+    }
+
+    pos = position.left;
+    wid = width;
+  }
+});
+

@@ -1,0 +1,78 @@
+<a href="initialOrg" download>Download Java Code</a>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>initialOrg</title>
+  </head>
+  <body>
+    <pre>
+/* Ethan Huynh
+ * Date: 1/27/2022
+ * COSC 1337 001
+ * Purpose: Output user first middle and last name with length then randomize the letters.
+ * Insight: 
+ */
+
+package initials;
+
+import java.util.Random;
+
+public class Program1Initials {
+
+	public static void main(String[] args) {
+		String[] strings = { "David Lee Alger", "Kate Garry Hudson", "Tina Stamatina Fey", "Hugh Mungo Grant",
+				"Uma Karuna Thurman" };
+
+		for (int i = 0; i < strings.length; i++) {
+
+			String currentName = strings[i];
+
+			// printing out name using substring function
+			String firstName = currentName.substring(0, currentName.indexOf(" "));
+			// I set an index to the first whitespace, I tested this method using an output
+			// function
+			int index = currentName.indexOf(" ");
+			// I set a char to firstInitial to dictate what name im referring too
+			// first, middle, last
+			// i then pointed it to the function and output the function
+			char firstInitial = firstName.charAt(0);
+			System.out.println("Your first name is " + firstName + " with a length of " + firstName.length());
+			int index2 = currentName.indexOf(' ', index + 1);
+
+			String middleName = currentName.substring(index, index2);
+			System.out.println("Your middle name is" + middleName + " with a length of " + middleName.length());
+			// Had to set charAt(1) so as the index function leads to a white space.
+			char middleInitial = middleName.charAt(1);
+
+			String lastName = currentName.substring(index2, currentName.length());
+			char lastInitial = lastName.charAt(1);
+			System.out.println("Your last name is" + lastName + " with a length of " + lastName.length());
+			System.out.println("Your initials are " + firstInitial + middleInitial + lastInitial);
+
+			// to find rand values
+
+			Random random = new Random();
+
+			int randNum = random.nextInt(currentName.length());
+			System.out.println(randNum);
+			int length = 5;
+		
+			System.out.println(currentName.substring(randNum, ));
+				
+
+			
+
+			System.out.println();
+			System.out.println();
+
+		}
+
+	}
+
+}
+<body>
+    <pre>
+
+        
