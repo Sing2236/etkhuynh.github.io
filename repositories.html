@@ -32,6 +32,11 @@
    opacity: 1;
    transition: opacity 0.5s ease-in-out;
   }
+  .html-preview.notActive{
+  opacity; 0;
+   transition: opactiy 0.5s ease-in-out;
+  }
+  
 
   .moving-graphic {
    position: absolute;
@@ -114,6 +119,7 @@
   var contentElements = document.querySelectorAll('.html-preview');
   contentElements.forEach(function(element) {
    element.classList.remove('active');
+   element.classList.remove('notActive');
   });
 
   var selectedContent = document.getElementById(contentId);
