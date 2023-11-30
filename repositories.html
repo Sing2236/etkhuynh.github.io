@@ -113,12 +113,11 @@
  function showHTML(contentId) {
   var contentElements = document.querySelectorAll('.html-preview');
   contentElements.forEach(function(element) {
-   element.classList.remove('active');
    element.classList.remove('notActive');
   });
 
   var selectedContent = document.getElementById(contentId);
-  selectedContent.classList.add('active');
+  selectedContent.classList.add('notActive');
  }
 </script>
 </body>
