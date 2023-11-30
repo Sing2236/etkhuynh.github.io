@@ -1,144 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
- <meta charset="utf-8">
- <title>Navigation Bar</title>
- <style>
-  body {
-   background: #333;
-   font-family: Arial, sans-serif;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Showcase</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
-  .html-preview {
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   width: 800px;
-   height: 600px;
-   background: white;
-   overflow: auto;
-   z-index: 999;
-   opacity: 0;
-   height: 100%;
-   overflow: auto;
-   border: 1px solid #ccc;
-   border-radius: 10px;
-   padding: 20px;
-   transition: opacity 0.5s ease-in-out;
-  }
- .html-preview.notActive {
-  opacity: 5;
-  transition: opacity 0.5s ease-in-out;
-}
+    .project-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
-  
+    .project {
+      width: 300px;
+      height: 200px;
+      margin: 10px;
+      border: 1px solid #ccc;
+      position: relative;
+      cursor: pointer;
+    }
 
-  .moving-graphic {
-   position: absolute;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 100vh;
-   background: url("https://media2.giphy.com/media/3ohhwutQL0CDTq3kKA/giphy.gif?cid=ecf05e47r1geao9h547pixfdiglyqn8symy8a092akmwdfwf&ep=v1_stickers_search&rid=giphy.gif&ct=s");
-   background-size: cover;
-   background-position: center;
-   background-repeat: no-repeat;
-   z-index: -1;
-  }
+    .project-title {
+      padding: 10px;
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
 
-  #topbar {
-   position: fixed;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 60px;
-   background: rgba(51, 51, 51, 0.8);
-   z-index: 1000;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-  }
+    .project-code {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
 
-  #topbar ul {
-   list-style: none;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-  }
-
-  #topbar ul li {
-   margin: 0 20px;
-  }
-
-  #topbar ul li a {
-   color: white;
-   text-decoration: none;
-   font-size: 18px;
-   font-weight: bold;
-  }
-
-  #topbar ul li a:hover {
-   color: white;
-   opacity: 0.7;
-  }
- </style>
+    .project:hover .project-code {
+      opacity: 1;
+    }
+  </style>
 </head>
 <body>
- <div class="moving-graphic"></div>
+  <div class="project-container">
+    <div class="project">
+      <div class="project-title">Project 1</div>
+      <div class="project-code">
+        <pre>
+          // Your project code here
+        </pre>
+      </div>
+    </div>
 
- <div id="topbar">
-  <ul>
-    <li><a href="#" onmouseover="showHTML('content1')">Link 1</a></li>
-   <li><a href="#" onmouseover="showHTML('content2')">Link 2</a></li>
-   <li><a href="#" onmouseover="showHTML('content3')">Link 3</a></li>
-  </ul>
- </div>
+    <div class="project">
+      <div class="project-title">Project 2</div>
+      <div class="project-code">
+        <pre>
+          // Your project code here
+        </pre>
+      </div>
+    </div>
 
- <div id="content1" class="html-preview">
-  <h1>Content for Page 1</h1>
-  <p>This is the content for Page 1.</p>
- </div>
+    </div>
 
- <div id="content2" class="html-preview">
-  <h1>Content for Page 2</h1>
-  <p>This is the content for Page 2.</p>
- </div>
-
- <div id="content3" class="html-preview">
-  <h1>Content for Page 3</h1>
-  <p>This is the content for Page 3.</p>
- </div>
-
- <script>
- function showHTML(contentId) {
-  var contentElements = document.querySelectorAll('.html-preview');
-  contentElements.forEach(function(element) {
-   element.classList.remove('notActive');
-  });
-
-  var selectedContent = document.getElementById(contentId);
-  selectedContent.classList.add('notActive');
- }
-
-
-  function showHTML(contentId) {
-  var contentElements = document.querySelectorAll('.html-preview');
-
-  contentElements.forEach(function(element) {
-    // Add a class to trigger the transition
-    element.classList.add('notActive');
-
-    // Listen for the 'transitionend' event
-    element.addEventListener('transitionend', function() {
-      // Remove the class after the transition is complete
-      element.classList.remove('notActive');
-      // Set opacity to 0 after the transition
-      element.style.opacity = 0;
-    }, { once: true }); // { once: true } ensures the event listener is executed only once
-  });
-}
-
-</script>
+  <script>
+    // Add JavaScript code here if needed
+  </script>
 </body>
 </html>
