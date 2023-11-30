@@ -51,10 +51,94 @@
 <body>
   <div class="project-container">
     <div class="project">
-      <div class="project-title">Project 1</div>
+      <div class="project-title">Bank Transaction System</div>
       <div class="project-code">
         <pre>
-          // Your project code here
+          /* Ethan Huynh
+ * Date: 10/25/2021
+ * Purpose: Program that accepts a current balance and a transaction.
+ */
+
+
+package program04;
+
+import java.util.Scanner; 
+
+public class Program04 {
+
+	public static void main(String[] args) {
+
+		Scanner scanner = new Scanner(System.in);
+		String display;
+		
+		displayPrompt(display);
+
+
+
+	}
+
+	public static String displayPrompt(String messageTemp) { 
+
+
+		String message = "-------------------------------------";
+
+		System.out.println(message);
+	return(message);
+	
+	
+	}
+
+
+
+	public void computeNewBalance(String[] args) {
+
+		Scanner scanner = new Scanner(System.in);
+
+		System.out.println("Please enter the amount of your current balance: ");
+		double balance = scanner.nextDouble();
+
+		System.out.print("Please enter the change you are doing to your account: ");
+		double userCashInput = scanner.nextDouble();
+
+		double newBalance = userCashInput + balance; 
+
+		if(newBalance < 0) {
+			newBalance = newBalance - 25;
+			//System.out.println("Your new balance is: " + newBalance);
+			//System.out.println("Overdraft fee: 25");
+		}
+		else {
+			System.out.println("Your new balance is: " + newBalance);
+		}
+
+
+		/* System.out.println("Previous Balance: " + balance);
+		System.out.println("Amount inputted: " + userCashInput);
+		 */ 
+
+
+		scanner.close();
+
+	}
+
+	public void displayOutput(String[] args) {
+		if(userCashInput < 0) {
+			
+		}
+	
+		
+		
+		
+		
+	}
+
+}
+
+
+
+
+
+
         </pre>
       </div>
     </div>
