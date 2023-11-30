@@ -27,10 +27,11 @@
    padding: 20px;
    transition: opacity 0.5s ease-in-out;
   }
-  .html-preview.notActive{
-  opacity; 0;
-   transition: opactiy 0.5s ease-in-out;
-  }
+ .html-preview.notActive {
+  opacity: 5;
+  transition: opacity 0.5s ease-in-out;
+}
+
   
 
   .moving-graphic {
@@ -119,6 +120,25 @@
   var selectedContent = document.getElementById(contentId);
   selectedContent.classList.add('notActive');
  }
+
+
+  function showHTML(contentId) {
+  var contentElements = document.querySelectorAll('.html-preview');
+
+  contentElements.forEach(function(element) {
+    // Add a class to trigger the transition
+    element.classList.add('notActive');
+
+    // Listen for the 'transitionend' event
+    element.addEventListener('transitionend', function() {
+      // Remove the class after the transition is complete
+      element.classList.remove('notActive');
+      // Set opacity to 0 after the transition
+      element.style.opacity = 0;
+    }, { once: true }); // { once: true } ensures the event listener is executed only once
+  });
+}
+
 </script>
 </body>
 </html>
