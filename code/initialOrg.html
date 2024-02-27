@@ -1,63 +1,12 @@
-<<<<<<< Updated upstream
 <a href="initialOrg" download>Download Java Code</a>
 
-=======
->>>>>>> Stashed changes
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <title>initialOrg</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/codemirror.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/codemirror.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/mode/javascript/javascript.min.js"></script>
-</head>
-<body>
-<div id="editor" style="width: 1920px; height: 200x;"></div>
-<button id="runButton"style="color: red; height: 500;";>Run</button><!-- Run button -->
-<div id="output"></div>
-<script>
-  // Initialize CodeMirror
-  var editor = CodeMirror(document.getElementById("editor"), {
-    mode: "javascript", // Set the language mode to JavaScript
-    lineNumbers: true,   // Enable line numbers
-    theme: "default"     // Set the theme (optional)
-  });
-
-  // Set default content (optional)
-  editor.setValue("// Start coding here...");
-
-  // Function to execute the code
-  function runCode() {
-    // Get the code from the editor
-    var code = editor.getValue();
-    try {
-      // Evaluate the code
-      var result = eval(code);
-	  document.getElementById("output").innerText = result;
-      // If the code returns a result, display it
-      if (result !== undefined) {
-        // Show the result in the output container
-        document.getElementById("output").innerText = result;
-      } else {
-        // If the code doesn't return a result, display "undefined"
-        document.getElementById("output").innerText = "undefined";
-      }
-    } catch (error) {
-      // Handle any errors
-      console.error(error);
-      // Show the error in the output container
-      document.getElementById("output").innerText = "Error: " + error.message;
-    }
-  }
-
-  // Event listener for the "Run" button
-  document.getElementById("runButton").addEventListener("click", runCode);
-</script>
-
-
-
-
+  <head>
+    <meta charset="UTF-8">
+    <title>initialOrg</title>
+  </head>
+  <body>
     <pre>
 /* Ethan Huynh
  * Date: 1/27/2022
