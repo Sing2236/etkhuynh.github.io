@@ -2,11 +2,11 @@
 
 This is a work-in-progress website that is constantly being updated and improved.
 
-**Note: The information below reflects the current state of the website as of June 27, 2023.**
+**Note: The information below reflects the current state of the website as of May 15, 2024.**
 
 ## Website Status
 
-- Last Updated: June 27, 2023
+- Last Updated: May 15, 2024
 - Work-in-Progress (WIP)
 
 ## About
